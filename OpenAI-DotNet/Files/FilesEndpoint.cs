@@ -189,5 +189,14 @@ namespace OpenAI.Files
             await response.CopyToAsync(fileStream, cancellationToken).ConfigureAwait(false);
             return filePath;
         }
+
+        public async Task<MemoryStream> RetriveFileContentsAsync(string fileId, CancellationToken cancellationToken = default)
+        {
+            MemoryStream memoryStream = new MemoryStream();
+
+            await using var response = await client.Client.GetStreamAsync(GetUrl($"/{fileId}/content"), cancellationToken).ConfigureAwait(false);
+            await response.CopyToAsync(memoryStream);
+            return memoryStream;
+        }
     }
 }

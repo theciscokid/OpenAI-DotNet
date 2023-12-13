@@ -25,5 +25,9 @@ namespace OpenAI.Threads
         [JsonInclude]
         [JsonPropertyName("function")]
         public FunctionCall FunctionCall { get; private set; }
+
+        [JsonInclude]
+        [JsonPropertyName("code_interpreter")]
+        public CodeInterpreter CodeInterpreter { get; private set; }
     }
 }

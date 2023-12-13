@@ -30,6 +30,13 @@ namespace OpenAI.Files
             Purpose = purpose;
         }
 
+        public FileUploadRequest(string fileName, Stream fileStream, string purpose)
+        {
+            File = fileStream;
+            FileName = fileName;
+            Purpose = purpose;
+        }
+
         ~FileUploadRequest()
         {
             Dispose(false);
